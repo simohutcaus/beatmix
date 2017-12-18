@@ -8,39 +8,67 @@ const toggleDrum = (arrayName, arrayIndex) => {
 
     if (!arrayName || !arrayIndex) {
         return null;
-    } else if (!arrayName[arrayIndex]){
-        arrayName[arrayIndex] = true
+    }
+    x = findArray(arrayName);
+    if (x[arrayIndex] == false) {
+        x[arrayIndex] = true;
+        console.log(x);
+    } else if (x[arrayIndex] == true) {
+        x[arrayIndex] = false; 
+    }
+};
+
+const findArray = (arrayName) => {
+    if (arrayName == "kicks") {
+        //console.log("kicks");
+        return kicks;
+    } else if (arrayName == "snares") {
+        //console.log("snares");
+        return snares;
+    } else if (arrayName == "hiHats") {
+        //console.log("hiHats");
+        return hiHats;
+    } else if (arrayName == "rideCymbals") {
+        //console.log("rideCymbals");
+        return rideCymbals;
+    } else {
+        return null;
     }
 
-};
+}
 
 
 const clear = (arrayName) => {
-    //console.log(arrayName);
     if (!arrayName) {
-        return;
-    } else if (arrayName == !kicks || !snares || !hiHats || !rideCymbals) {
-        return;
-    } else {
-arrayName.fill = false;
+        return false;
     }
+    x = findArray(arrayName);
+    if (x == null) {
+        return;
+    }
+    //console.log ('this is X ' + x);
+        x.fill(false);
+        //console.log(x);
 }
 
 const invert = (arrayName) =>  {
  //console.log ('this is invert arrayname ' + arrayName);
     if (!arrayName) {
         return null;
-    } else if (arrayName === !kicks || !snares || !hiHats || !rideCymbals) {
-        return null;
-    } 
+    }
+    x = findArray(arrayName);
 
-    for (i=0; i < arrayName.length; i++) {
+    if (x == null) {
+        return;
+    }
+    
+    for (i=0; i < x.length; i++) {
         //console.log(arrayName[i]);
-        if (arrayName[i] == false) {
+        if (x[i] == false) {
             //console.log(arrayName[i]);
-            arrayName[i] = true
+            x[i] = true
         } else {
-            arrayName[i] = false
+            x[i] = false
         }
     }
 };
