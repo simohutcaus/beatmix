@@ -39,6 +39,7 @@ const findArray = (arrayName) => {
 
 
 const clear = (arrayName) => {
+    //commit git
     if (!arrayName) {
         return false;
     }
